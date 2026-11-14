@@ -475,6 +475,8 @@ for (const a of K.benefits.awards as Award[]) {
       const res = await fetch(f.getAttribute('action') || '/', { method: 'POST', body: new FormData(f) });
       if (!res.ok) throw new Error(String(res.status));
       f.classList.add('sent');
+      const ok = (f.querySelector('.bw-ok, .bw-danke, [data-danke]') as HTMLElement | null) || f;
+      requestAnimationFrame(() => { const y = ok.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); ok.setAttribute('tabindex', '-1'); ok.focus({ preventScroll: true }); });
       window.bvTrack?.('bewerbung_abgeschickt', { stelle: sel?.value || '' });
     } catch (err) {
       btn.disabled = false;

@@ -10,6 +10,7 @@ const cb = (T.cookiebot_id || '').trim();
 const ids = { ga: (T.ga4_id || '').trim(), ads: (T.google_ads_id || '').trim(), px: (T.meta_pixel_id || '').trim(), chat: (T.superchat_key || '').trim() };
 ---
 {!cb && ids.chat && <script is:inline src={`https://widget.superchat.de/snippet.js?applicationKey=${encodeURIComponent(ids.chat)}`} referrerpolicy="no-referrer-when-downgrade" defer></script>}
+{!cb && ids.chat && <script is:inline>document.documentElement.classList.add("sc-an")</script>}
 {cb && (
   <>
     <script is:inline>
@@ -36,7 +37,7 @@ const ids = { ga: (T.ga4_id || '').trim(), ads: (T.google_ads_id || '').trim(), 
           window.fbq('init', ids.px); window.fbq('track', 'PageView');
         }
         // Chat-Widget (Superchat) nach Zustimmung „Präferenzen“
-        if (c.preferences && ids.chat && !geladen.chat) { geladen.chat = 1; var sc = document.createElement('script'); sc.src = 'https://widget.superchat.de/snippet.js?applicationKey=' + encodeURIComponent(ids.chat); sc.referrerPolicy = 'no-referrer-when-downgrade'; sc.async = true; document.head.appendChild(sc); }
+        if (c.preferences && ids.chat && !geladen.chat) { geladen.chat = 1; var sc = document.createElement('script'); sc.src = 'https://widget.superchat.de/snippet.js?applicationKey=' + encodeURIComponent(ids.chat); sc.referrerPolicy = 'no-referrer-when-downgrade'; sc.async = true; document.head.appendChild(sc); document.documentElement.classList.add('sc-an'); }
         if (!mkt && window.fbq) window.fbq('consent', 'revoke');
         window.bvEinwilligung = { statistik: stat, marketing: mkt, ga: !!(stat && geladen.ga), ads: !!(mkt && geladen.ads), px: !!(mkt && geladen.px) };
       }

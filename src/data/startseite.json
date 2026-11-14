@@ -494,7 +494,6 @@
     "mitte_badge": "Nur für SHK-Betriebe ab 1 Mio. €",
     "mitte": [
       "Spezialisiert auf SHK-Betriebe, mit Tiefe in § 13b und Baustellenkalkulation",
-      "Versteht § 13b und Baustellen-Kalkulation",
       "Laufende Beratung statt nur Jahresabschluss",
       "Macht dich zum Herrn deiner Zahlen: Du weißt, was jede Baustelle verdient",
       "Wandelt um und strukturiert: GmbH, Holding, Nachfolge",
@@ -642,9 +641,9 @@
     "eyebrow": "Der Mensch hinter Bentivegna",
     "name": "Domenico Bentivegna",
     "zitat": "„Buchhaltung und Jahresabschluss sind das Pflichtprogramm. Mein Kerngeschäft ist, deinen Betrieb profitabel, steuerlich sicher und unabhängig von dir aufzustellen.“",
-    "unterzeile": "Domenico Bentivegna · Steuerberater · Fachberater für Unternehmensnachfolge (DStV e. V.)",
+    "unterzeile": "Domenico Bentivegna · Steuerberater",
     "bild": "/uploads/domenico-profil.jpg",
-    "bild_alt": "Domenico Bentivegna, Steuerberater und Fachberater für Unternehmensnachfolge",
+    "bild_alt": "Domenico Bentivegna, Steuerberater",
     "bilder_zusatz": [
       {
         "bild": "/uploads/kanzlei/domenico-schreibtisch.jpg",

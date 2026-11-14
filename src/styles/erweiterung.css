@@ -1261,3 +1261,26 @@ html,body{overflow-x:clip}
 .teil-thumb .teil-nr{position:absolute;left:8px;bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .teil-liste a:has(.teil-thumb){padding:12px 20px 12px 12px}
 @media(max-width:800px){.teil-thumb{width:100%;aspect-ratio:16/9}.teil-liste a:has(.teil-thumb){padding:12px}}
+
+/* Eigener WhatsApp-Link + fester Termin-Button am Handy (14.11.) */
+html.sc-an .fab--link{display:none}
+.mob-cta{display:none}
+@media(max-width:760px){
+  .fab--link{right:12px;bottom:12px;width:52px;height:52px;padding:0;justify-content:center;border-radius:50%}
+  .fab--link span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .fab--link .wa{width:26px;height:26px}
+  .mob-cta{display:block;position:fixed;left:12px;right:76px;bottom:12px;z-index:89;transform:translateY(calc(100% + 24px));opacity:0;transition:transform .4s var(--ease),opacity .3s}
+  .mob-cta.an{transform:none;opacity:1}
+  .mob-cta .btn{width:100%;max-width:none;min-height:52px;justify-content:center;box-shadow:0 10px 26px rgba(20,28,60,.28)}
+  html.sc-an .mob-cta{right:88px}
+}
+@media print{.mob-cta{display:none!important}}
+/* Autorenbox: Fachberater-Logo abgesetzt */
+.autor img.autor-siegel{display:block;width:210px;height:auto;border-radius:0;object-fit:contain;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+
+/* Buchreihe: Ankündigung nächster Teil + WhatsApp-Kanal (14.11.) */
+.buch-abo{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:18px 22px;margin-bottom:30px;background:var(--cream);border-radius:12px}
+.buch-next{display:flex;align-items:center;gap:12px;margin:0;color:var(--navy)}
+.buch-next .ico{width:22px;height:22px;color:var(--gold);flex:0 0 auto}
+.buch-next small{display:block;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.buch-next b{display:block;line-height:1.3}

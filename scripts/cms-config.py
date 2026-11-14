@@ -9,7 +9,7 @@ L={'superchat_key':'Superchat: Widget-Schlüssel (applicationKey aus dem Einbett
  'logos':'Logos','alt':'Bildbeschreibung (Alt-Text)','wert':'Wert','telefon':'Telefon','email':'E-Mail','whatsapp':'WhatsApp-Nummer','youtube':'YouTube-Kanal (Link)','firma':'Firmenname',
  'claim':'Claim','strasse':'Straße','plz_ort':'PLZ und Ort','erreichbar':'Erreichbar','tags':'Schlagworte','schritte':'Schritte','stationen':'Stationen','zeit':'Uhrzeit','galerie':'Galerie',
  'optionen':'Antwortmöglichkeiten','id':'Interne Kennung','ziel':'Ziel (Link)','buttons':'Buttons','danke':'Danke-Seite','formular':'Formular','einwilligung':'Einwilligungstext',
- 'abschluss':'Abschlussblock','autor':'Autorenbox','audio_aktiv':'Hörbuch-Player anzeigen','newsletter_aktiv':'E-Mail-Anmeldung anzeigen','impressum':'Impressum','datenschutz':'Datenschutzerklärung',
+ 'abschluss':'Abschlussblock','autor':'Autorenbox','audio_aktiv':'Hörbuch-Player anzeigen','newsletter_aktiv':'E-Mail-Anmeldung anzeigen','naechster_teil':'Nächster Teil (Ankündigung)','whatsapp_kanal':'Link zum WhatsApp-Kanal','impressum':'Impressum','datenschutz':'Datenschutzerklärung',
  'youtube_id':'YouTube-Video-ID','kategorie':'Kategorie','chat':'WhatsApp-Dialog','von':'Absender (mandant oder kanzlei)','unterschrift':'Unterschrift','swoosh':'Bild-Etikett','unterzeile':'Unterzeile',
  'zeile1':'Headline Zeile 1','zeile2':'Headline Zeile 2','subline':'Text unter der Headline','bullets':'Drei Punkte unter den Buttons','kicker':'Kicker über der Headline','marker_tag':'Marker (kurz)','marker_text':'Marker-Text',
  'button_primaer':'Button 1','button_sekundaer':'Button 2','video_youtube_id':'Video hinter dem Bild (YouTube-ID)','fokus_label':'Etikett auf dem Bild','badge_titel':'Badge: Titel','badge_text':'Badge: Text',

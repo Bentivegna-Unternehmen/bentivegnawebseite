@@ -12,6 +12,10 @@ const neuester = artikel[artikel.length - 1];
 const proKapitel = kapitel.map((k) => ({ k, liste: artikel.filter((a) => a.data.kapitel === k.id) }));
 const ohneKapitel = artikel.filter((a) => !kapitel.some((k) => k.id === a.data.kapitel));
 const kapitelName = (a) => { const k = kapitel.find((x) => x.id === a.data.kapitel); return k ? `Kapitel ${k.data.nummer} · ${k.data.titel}` : ''; };
+const NT = (R as any).naechster_teil || {};
+const ntDatum = NT.datum ? new Date(NT.datum).toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Berlin' }) : '';
+const naechster = NT.titel ? NT.titel + (ntDatum ? `, erscheint am ${ntDatum}` : ', erscheint in Kürze') : '';
+const waKanal = ((R as any).whatsapp_kanal || '').trim();
 const reiheUrl = absUrl('/der-chef-auf-der-baustelle/');
 const ld = {
   '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': reiheUrl, name: R.titel, description: R.seo.beschreibung, url: reiheUrl, inLanguage: 'de-DE',
@@ -52,6 +56,12 @@ const ld = {
         <span class="eyebrow">Inhalt</span>
         <h2 style="margin-top:16px">Kapitel und Teile</h2>
       </div>
+      {(naechster || waKanal) && (
+        <div class="buch-abo">
+          {naechster && <p class="buch-next"><Icon name="clock" /> <span><small>Nächster Teil</small><b>{naechster}</b></span></p>}
+          {waKanal && <a class="btn btn--light" href={waKanal} target="_blank" rel="noopener" data-track="buchreihe_whatsapp_kanal">Neue Teile per WhatsApp erhalten <span class="arr"></span></a>}
+        </div>
+      )}
       <div class="kap-liste">
         {proKapitel.map(({ k, liste }) => (
           <div class="kap">

@@ -10,6 +10,7 @@ const q = (n: string) => u(`/uploads/quiz/${n}.webp`);
   <section class="qz" id="qz" data-anfrage={u('/anfrage/')} data-datenschutz={u('/datenschutz/')} data-formziel={u('/')} data-buch={u('/der-chef-auf-der-baustelle/')}
     data-b1={q('baustelle-1')} data-b2={q('baustelle-2')} data-b3={q('baustelle-3')} data-b4={q('baustelle-4')} data-b5={q('baustelle-5')} data-b6={q('baustelle-6')}
     data-haus={q('quiz-start')} data-lot={q('quiz-wasserwaage')}>
+    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap">Selbstcheck: Wo steht dein Betrieb wirklich?</h1>
     <svg class="qz-plan" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <g transform="translate(-30 236) scale(.75)">
@@ -106,8 +107,8 @@ const q = (n: string) => u(`/uploads/quiz/${n}.webp`);
   .qz-start{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;min-height:calc(100vh - 260px)}
   .qz-pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:50px;padding:7px 15px;font-size:.82rem;font-weight:700;color:var(--navy);box-shadow:var(--shadow-s)}
   .qz-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
-  .qz h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;margin:18px 0 0}
-  .qz h1 em{font-family:var(--serif);font-weight:500;color:var(--gold)}
+  .qz .qz-h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;margin:18px 0 0}
+  .qz .qz-h1 em{font-family:var(--serif);font-weight:500;color:var(--gold)}
   .qz-lead{font-size:1.12rem;color:var(--muted);margin-top:16px;line-height:1.6}
   .qz-lead em{color:var(--navy);font-style:italic;font-family:var(--serif)}
   .qz-mass{display:flex;margin:22px 0 0;max-width:470px}
@@ -540,7 +541,7 @@ const q = (n: string) => u(`/uploads/quiz/${n}.webp`);
     return `<div class="qz-screen qz-start">
       <div>
         <span class="qz-pill">Selbstcheck · Der Chef auf der Baustelle</span>
-        <h1>Wo steht dein Betrieb <em>wirklich</em>?</h1>
+        <h2 class="qz-h1">Wo steht dein Betrieb <em>wirklich</em>?</h2>
         <p class="qz-lead">Sechs Baustellen, eine Zahl von 1 bis 10. Zu jeder Zahl steht, was sie bedeutet. <em>Ehrlich schlägt freundlich:</em> Die Note ist für dich, niemand sonst sieht sie.</p>
         <p class="qz-mass"><span>6 Baustellen</span><span>ca. 5 Minuten</span><span>bleibt auf deinem Gerät</span></p>
         <button type="button" class="btn btn--gold" data-akt="los">Selbstcheck starten <span class="arr"></span></button>

@@ -11,7 +11,8 @@
   "autor": {
     "name": "Domenico Bentivegna",
     "bild": "/uploads/domenico-autor.jpg",
-    "text": "Domenico Bentivegna ist Steuerberater und Fachberater für Unternehmensnachfolge (DStV e. V.). Seit über 20 Jahren begleitet er Unternehmer, heute mit seiner Kanzlei spezialisiert auf SHK-Betriebe ab 1 Mio. € Umsatz."
+    "siegel": "/uploads/logos/dstv-fachberater-unternehmensnachfolge.webp",
+    "text": "Domenico Bentivegna ist Steuerberater. Seit über 20 Jahren begleitet er Unternehmer, heute mit seiner Kanzlei spezialisiert auf SHK-Betriebe ab 1 Mio. € Umsatz."
   },
   "abschluss": {
     "titel": "Wo steht dein Betrieb wirklich?",
@@ -22,5 +23,10 @@
   "audio_aktiv": false,
   "newsletter_aktiv": false,
   "newsletter_titel": "Reihe per E-Mail erhalten",
-  "newsletter_text": "Jeden neuen Teil direkt in dein Postfach. Kein Spam, jederzeit abbestellbar."
+  "newsletter_text": "Jeden neuen Teil direkt in dein Postfach. Kein Spam, jederzeit abbestellbar.",
+  "naechster_teil": {
+    "titel": "",
+    "datum": ""
+  },
+  "whatsapp_kanal": ""
 }

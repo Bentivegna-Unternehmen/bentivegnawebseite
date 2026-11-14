@@ -45,6 +45,8 @@ const org = {
 const wa = waLink(E.whatsapp);
 // Chat-Widget von Superchat (Schlüssel im Redaktionssystem unter Cookie-Banner & Tracking). Ist er gesetzt, ersetzt es den eigenen WhatsApp-Knopf.
 const superchat = ((E.tracking as Record<string, string>)?.superchat_key || '').trim();
+// Eigener WhatsApp-Link (ohne Einwilligung) und fester Termin-Button am Handy. Nicht auf Anfrage-Strecke, Selbstcheck und Karriere.
+const mobCta = !/\/(anfrage|karriere|admin|entwurf|steuerstrategie|vermoegensstrategie)(\/|$)|selbstcheck/.test(pfad) && footer !== 'karriere';
 const matomo = E.tracking.matomo_url && E.tracking.matomo_site_id;
 ---
 <!doctype html>
@@ -87,6 +89,9 @@ const matomo = E.tracking.matomo_url && E.tracking.matomo_site_id;
   <Footer variante={footer} />
   {!superchat && <button type="button" class="fab" aria-label="Chat per WhatsApp öffnen" aria-expanded="false" aria-controls="wa-fenster" data-wa-auf data-track="whatsapp_klick"><Brand name="whatsapp" class="wa" /> WhatsApp</button>}
   {!superchat && <WaWidget />}
+  {superchat && wa && <a class="fab fab--link" href={wa} target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben" data-track="whatsapp_klick"><Brand name="whatsapp" class="wa" /> <span>WhatsApp</span></a>}
+  {mobCta && <div class="mob-cta" id="mobCta"><a href={u('/anfrage/')} class="btn btn--gold" data-track="cta_mobil_fest">Analysegespräch <span class="arr"></span></a></div>}
+  {mobCta && <script is:inline>(function(){var b=document.getElementById('mobCta');if(!b)return;function f(){var y=window.scrollY||0,h=document.documentElement.scrollHeight-window.innerHeight;b.classList.toggle('an',y>520&&y<h-260)}window.addEventListener('scroll',f,{passive:true});f()})();</script>}
   <script>
     import '../scripts/site.ts';
   </script>

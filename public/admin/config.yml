@@ -216,6 +216,10 @@ collections:
         name: bild
         widget: image
         required: false
+      - label: kununu-Siegel (je Jahr, ohne Bild wird es nicht angezeigt)
+        name: siegel
+        widget: image
+        required: false
       - label: Text
         name: text
         widget: text
@@ -255,6 +259,23 @@ collections:
       required: false
     - label: Newsletter text
       name: newsletter_text
+      widget: string
+      required: false
+    - label: Nächster Teil (Ankündigung)
+      name: naechster_teil
+      widget: object
+      collapsed: true
+      fields:
+      - label: Überschrift
+        name: titel
+        widget: string
+        required: false
+      - label: Datum
+        name: datum
+        widget: string
+        required: false
+    - label: Link zum WhatsApp-Kanal
+      name: whatsapp_kanal
       widget: string
       required: false
 - name: startseite

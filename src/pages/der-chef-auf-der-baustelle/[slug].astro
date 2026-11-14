@@ -38,7 +38,7 @@ const teilen = {
 const reiheUrl = absUrl('/der-chef-auf-der-baustelle/');
 const autorLd = {
   '@type': 'Person', '@id': absUrl('/#domenico-bentivegna'), name: R.autor.name,
-  jobTitle: 'Steuerberater, Fachberater für Unternehmensnachfolge (DStV e. V.)',
+  jobTitle: 'Steuerberater',
   image: absUrl(R.autor.bild), url: absUrl('/#ueber-uns'), worksFor: { '@id': absUrl('/#kanzlei') }
 };
 const woerter = body.replace(/[#>*_`\[\]()|-]/g, ' ').split(/\s+/).filter(Boolean).length;
@@ -65,6 +65,11 @@ const ld = [
     ]
   }
 ];
+const NT = (R as any).naechster_teil || {};
+const ntDatum = NT.datum ? new Date(NT.datum).toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Berlin' }) : '';
+const naechster = NT.titel ? NT.titel + (ntDatum ? `, erscheint am ${ntDatum}` : ', erscheint in Kürze') : '';
+const waKanal = ((R as any).whatsapp_kanal || '').trim();
+const naechsterText = naechster || 'erscheint in Kürze';
 ---
 <Base titel={d.meta_titel || `${d.titel} | ${R.titel}`} beschreibung={d.meta_beschreibung || d.lead} pfad={pfad} bild={`/der-chef-auf-der-baustelle/${a.id}/vorschau.jpg`} ogType="article" jsonld={ld}>
   <article class="artikel">
@@ -143,12 +148,12 @@ const ld = [
 
       <nav class="teil-nav" aria-label="Weitere Teile">
         {vor ? <a class="vor" href={u(`/der-chef-auf-der-baustelle/${vor.id}/`)}><small><Icon name="chevron-left" /> Vorheriger Teil</small><b>Teil {vor.data.teil}: {vor.data.titel}</b></a> : <span></span>}
-        {nach ? <a class="nach" href={u(`/der-chef-auf-der-baustelle/${nach.id}/`)}><small>Nächster Teil <Icon name="chevron-right" /></small><b>Teil {nach.data.teil}: {nach.data.titel}</b></a> : <span class="nach bald"><small>Nächster Teil</small><b>erscheint in Kürze</b></span>}
+        {nach ? <a class="nach" href={u(`/der-chef-auf-der-baustelle/${nach.id}/`)}><small>Nächster Teil <Icon name="chevron-right" /></small><b>Teil {nach.data.teil}: {nach.data.titel}</b></a> : <span class="nach bald"><small>Nächster Teil</small><b>{naechsterText}</b></span>}
       </nav>
 
       <aside class="autor">
         <img src={u(R.autor.bild)} alt={R.autor.name} loading="lazy" width="96" height="96">
-        <div><b>{R.autor.name}</b><p>{R.autor.text}</p><a href={u('/#ueber-uns')}>Mehr über Domenico Bentivegna</a></div>
+        <div><b>{R.autor.name}</b><p>{R.autor.text}</p><a href={u('/#ueber-uns')}>Mehr über Domenico Bentivegna</a>{(R.autor as any).siegel && <img class="autor-siegel" src={u((R.autor as any).siegel)} alt="Fachberater für Unternehmensnachfolge (DStV e. V.)" width="900" height="316" loading="lazy">}</div>
       </aside>
     </div>
   </article>
