@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import ArtikelBild from '../../components/ArtikelBild.astro';
 import R from '../../data/buchreihe.json';
+import BuchAbo from '../../components/BuchAbo.astro';
 import { u, absUrl, istVeroeffentlicht, lesezeit, datumDE } from '../../lib/site';
 import { getCollection } from 'astro:content';
 
@@ -94,6 +95,7 @@ const ld = {
         )}
       </div>
       {artikel.length === 0 && <p class="teil-bald">Der erste Teil erscheint in Kürze.</p>}
+      <BuchAbo ort="uebersicht" />
     </div>
   </section>
 

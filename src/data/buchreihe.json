@@ -21,7 +21,7 @@
     "button": "Analysegespräch anfragen"
   },
   "audio_aktiv": false,
-  "newsletter_aktiv": false,
+  "newsletter_aktiv": true,
   "newsletter_titel": "Reihe per E-Mail erhalten",
   "newsletter_text": "Jeden neuen Teil direkt in dein Postfach. Kein Spam, jederzeit abbestellbar.",
   "naechster_teil": {

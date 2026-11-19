@@ -1,0 +1,46 @@
+---
+// Buchreihe per E-Mail abonnieren. Einfache Eintragung über Netlify Forms (Formular "buchreihe-abo"), ohne Newsletter-Dienst.
+// Texte: buchreihe.json → newsletter_titel, newsletter_text. Ein-/Ausschalten: newsletter_aktiv.
+import R from '../data/buchreihe.json';
+import { u } from '../lib/site';
+interface Props { ort?: string }
+const { ort = 'artikel' } = Astro.props;
+const id = 'abo-' + ort;
+---
+{R.newsletter_aktiv && (
+  <section class="newsletter buch-form" id="abonnieren">
+    <h2>{R.newsletter_titel}</h2>
+    <p>{R.newsletter_text}</p>
+    <form name="buchreihe-abo" method="POST" data-netlify="true" netlify-honeypot="bot-feld" action={u('/der-chef-auf-der-baustelle/')} class="abo-form" data-abo>
+      <input type="hidden" name="form-name" value="buchreihe-abo">
+      <input type="hidden" name="quelle" value={ort}>
+      <p hidden><label>Nicht ausfüllen: <input name="bot-feld" tabindex="-1" autocomplete="off"></label></p>
+      <div class="abo-zeile">
+        <label class="abo-feld" for={id + '-mail'}><span>E-Mail-Adresse</span>
+          <input id={id + '-mail'} type="email" name="email" required autocomplete="email" inputmode="email" placeholder="name@betrieb.de">
+        </label>
+        <button type="submit" class="btn btn--gold">Reihe abonnieren <span class="arr"></span></button>
+      </div>
+      <label class="abo-check"><input type="checkbox" name="einwilligung" value="ja" required> <span>Ich möchte neue Teile der Reihe per E-Mail erhalten. Abbestellen ist jederzeit möglich. Hinweise in der <a href={u('/datenschutz/')} target="_blank" rel="noopener">Datenschutzerklärung</a>.</span></label>
+      <p class="abo-fehler" role="alert" hidden>Das hat nicht geklappt. Bitte versuche es noch einmal oder schreib uns kurz.</p>
+    </form>
+    <p class="abo-ok" role="status" tabindex="-1" hidden><b>Danke, du bist eingetragen.</b> Den nächsten Teil bekommst du direkt per E-Mail.</p>
+  </section>
+)}
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-abo]').forEach((f) => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = f.querySelector('button') as HTMLButtonElement;
+      const fehler = f.querySelector('.abo-fehler') as HTMLElement;
+      const ok = f.parentElement!.querySelector('.abo-ok') as HTMLElement;
+      btn.disabled = true; fehler.hidden = true;
+      try {
+        const r = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f) as any).toString() });
+        if (!r.ok) throw new Error(String(r.status));
+        f.hidden = true; ok.hidden = false; ok.focus();
+        (window as any).bvTrack?.('buchreihe_abo');
+      } catch { fehler.hidden = false; btn.disabled = false; }
+    });
+  });
+</script>

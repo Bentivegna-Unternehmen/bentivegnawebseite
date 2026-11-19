@@ -1284,3 +1284,21 @@ html.sc-an .fab--link{display:none}
 .buch-next .ico{width:22px;height:22px;color:var(--gold);flex:0 0 auto}
 .buch-next small{display:block;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
 .buch-next b{display:block;line-height:1.3}
+
+/* Buchreihe per E-Mail abonnieren (19.11.) */
+.buch-form{background:var(--navy);color:#fff;border-radius:16px;padding:34px 36px;margin:44px 0}
+.buch-form h2{color:#fff;margin:0 0 8px;font-size:clamp(1.4rem,2.4vw,1.8rem)}
+.buch-form>p{color:rgba(255,255,255,.86);margin:0 0 20px}
+.abo-zeile{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.abo-feld{flex:1 1 260px;display:block}
+.abo-feld span{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;margin-bottom:6px;color:rgba(255,255,255,.8)}
+.abo-feld input{width:100%;min-height:54px;padding:0 16px;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:#fff;color:var(--navy);font:inherit}
+.abo-feld input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.abo-zeile .btn{min-height:54px;flex:0 0 auto}
+.abo-check{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:.86rem;line-height:1.45;color:rgba(255,255,255,.84)}
+.abo-check input{width:18px;height:18px;margin-top:2px;flex:0 0 auto;accent-color:var(--gold)}
+.abo-check a{color:#fff;text-decoration:underline}
+.abo-fehler{margin:14px 0 0;color:#ffd9d2;font-size:.92rem}
+.abo-ok{margin:0;padding:16px 18px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff}
+@media(max-width:640px){.buch-form{padding:26px 20px}.abo-zeile .btn{width:100%;max-width:none;justify-content:center}}
+@media print{.buch-form{display:none}}

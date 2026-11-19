@@ -4,6 +4,7 @@ import Icon from '../../components/Icon.astro';
 import Brand from '../../components/Brand.astro';
 import ArtikelBild from '../../components/ArtikelBild.astro';
 import R from '../../data/buchreihe.json';
+import BuchAbo from '../../components/BuchAbo.astro';
 import { u, E, absUrl, md, mdBlock, istVeroeffentlicht, lesezeit, datumDE } from '../../lib/site';
 import { getCollection } from 'astro:content';
 
@@ -138,13 +139,7 @@ const naechsterText = naechster || 'erscheint in Kürze';
         </div>
       </section>
 
-      {R.newsletter_aktiv && (
-        <section class="newsletter">
-          <h2>{R.newsletter_titel}</h2>
-          <p>{R.newsletter_text}</p>
-          <p class="hinweis-box">Platzhalter: Hier wird das Anmeldeformular des E-Mail-Dienstes eingebunden.</p>
-        </section>
-      )}
+      <BuchAbo ort="artikel" />
 
       <nav class="teil-nav" aria-label="Weitere Teile">
         {vor ? <a class="vor" href={u(`/der-chef-auf-der-baustelle/${vor.id}/`)}><small><Icon name="chevron-left" /> Vorheriger Teil</small><b>Teil {vor.data.teil}: {vor.data.titel}</b></a> : <span></span>}
