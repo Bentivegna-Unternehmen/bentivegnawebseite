@@ -17,11 +17,12 @@ export async function getStaticPaths() {
   }));
 }
 const { a, vor, nach, kap } = Astro.props;
-const d = a.data;
+// Ohne eigenes Bild gilt das Motiv des Kapitels.
+const d = { ...a.data, bild: a.data.bild || kap?.data.bild || '', bild_alt: a.data.bild_alt || kap?.data.bild_alt || '' };
 const pfad = `/der-chef-auf-der-baustelle/${a.id}/`;
 const url = absUrl(pfad);
 const minuten = d.lesezeit || lesezeit(a.body);
-const kapName = kap ? `Kapitel ${kap.data.nummer} · ${kap.data.titel}` : '';
+const kapName = kap ? (kap.data.ohne_nummer ? kap.data.titel : `Kapitel ${kap.data.nummer} · ${kap.data.titel}`) : '';
 
 // Text an der letzten Zwischenüberschrift teilen, damit die Aufgabe vor dem Ausblick steht
 const body = a.body || '';

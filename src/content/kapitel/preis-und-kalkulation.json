@@ -1,0 +1,47 @@
+{
+  "nummer": 3,
+  "titel": "Preis und Kalkulation",
+  "untertitel": "",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 20,
+      "titel": "Warum der Preis erst jetzt kommt"
+    },
+    {
+      "nr": 21,
+      "titel": "Der Stundenverrechnungssatz: Warum 65 Euro zu wenig sind"
+    },
+    {
+      "nr": 22,
+      "titel": "Produktive Stunden: die Zahl, die jeder überschätzt"
+    },
+    {
+      "nr": 23,
+      "titel": "Material: Aufschlag, Rabatt, Skonto, Bonus"
+    },
+    {
+      "nr": 24,
+      "titel": "Vorkalkulation: das Angebot als Gewinnplan"
+    },
+    {
+      "nr": 25,
+      "titel": "Nachkalkulation: jede Baustelle ein Lernschritt"
+    },
+    {
+      "nr": 26,
+      "titel": "Nachträge und Regieleistungen"
+    },
+    {
+      "nr": 27,
+      "titel": "Preiserhöhung durchsetzen"
+    },
+    {
+      "nr": 28,
+      "titel": "Zehn Kalkulationsfehler aus echten Betrieben"
+    }
+  ]
+}

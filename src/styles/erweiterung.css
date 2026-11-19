@@ -1302,3 +1302,14 @@ html.sc-an .fab--link{display:none}
 .abo-ok{margin:0;padding:16px 18px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff}
 @media(max-width:640px){.buch-form{padding:26px 20px}.abo-zeile .btn{width:100%;max-width:none;justify-content:center}}
 @media print{.buch-form{display:none}}
+
+/* Buchreihe: vollständige Gliederung, noch nicht erschienene Teile ausgegraut (19.11.) */
+.kap-kopf .kap-unter{color:var(--navy);font-weight:600;margin-top:4px}
+.teil-liste .teil-folgt{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:10px 16px;border:1px dashed var(--line);border-radius:10px;color:var(--muted)}
+.teil-folgt .teil-nr{background:transparent;color:var(--muted);border:1px solid var(--line);padding:5px 9px;font-size:.72rem}
+.teil-folgt .teil-txt b{color:#6f7486;font-weight:600;font-size:.98rem}
+.teil-folgt .teil-meta{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.teil-liste:has(.teil-folgt){gap:8px}
+.teil-liste:has(.teil-folgt) li:not(.teil-folgt){margin-bottom:4px}
+.band-folgt{margin:34px 0 0;padding:20px 24px;border-left:4px solid var(--gold);background:var(--cream);border-radius:0 10px 10px 0;color:var(--navy);font-weight:600}
+@media(max-width:800px){.teil-liste .teil-folgt{grid-template-columns:auto 1fr;padding:10px 12px}.teil-folgt .teil-meta{display:none}}

@@ -155,10 +155,42 @@ collections:
   - label: Titel
     name: titel
     widget: string
+  - label: Untertitel
+    name: untertitel
+    widget: string
+    required: false
   - label: Beschreibung
     name: beschreibung
     widget: text
     required: false
+  - label: Ohne Kapitelnummer anzeigen (z. B. Schluss)
+    name: ohne_nummer
+    widget: boolean
+    default: false
+    required: false
+  - label: Kapitelbild (Motiv ohne Text)
+    name: bild
+    widget: image
+    required: false
+    hint: Gilt für alle Teile des Kapitels, die kein eigenes Bild haben. Die Titelkarte mit Teilnummer und Titel entsteht daraus automatisch.
+  - label: Bildbeschreibung
+    name: bild_alt
+    widget: string
+    required: false
+  - label: Geplante Teile (Gliederung)
+    name: teile
+    widget: list
+    required: false
+    summary: '{{nr}} · {{titel}}'
+    hint: Alle Teile des Kapitels. Ist ein Artikel mit dieser Teilnummer veröffentlicht, wird er verlinkt, sonst erscheint der Titel ausgegraut.
+    fields:
+    - label: Teilnummer
+      name: nr
+      widget: number
+      value_type: int
+    - label: Titel
+      name: titel
+      widget: string
 - name: buchreihe
   label: Übersicht & Einstellungen
   description: Einleitung der Übersichtsseite, Autorenbox, Abschlussblock unter jedem Artikel und die Schalter für Hörbuch und E-Mail-Anmeldung.
@@ -276,6 +308,10 @@ collections:
         required: false
     - label: Link zum WhatsApp-Kanal
       name: whatsapp_kanal
+      widget: string
+      required: false
+    - label: Hinweis auf Band 2 (unter der Gliederung)
+      name: band2_hinweis
       widget: string
       required: false
 - name: startseite

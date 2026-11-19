@@ -1,0 +1,43 @@
+{
+  "nummer": 2,
+  "titel": "Die richtigen Aufträge",
+  "untertitel": "",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 12,
+      "titel": "Warum Aufträge vor Preisen kommen"
+    },
+    {
+      "nr": 13,
+      "titel": "Auftragsmix: Wartung, Reparatur, Projekt"
+    },
+    {
+      "nr": 14,
+      "titel": "Privat, Gewerbe, Bauträger, Generalunternehmer"
+    },
+    {
+      "nr": 15,
+      "titel": "A-, B- und C-Kunden im SHK-Betrieb"
+    },
+    {
+      "nr": 16,
+      "titel": "Positionierung: Wofür steht dein Betrieb?"
+    },
+    {
+      "nr": 17,
+      "titel": "Förderwellen: Geschäft im Takt des Bundestags"
+    },
+    {
+      "nr": 18,
+      "titel": "Nein sagen: Aufträge ablehnen, Kunden abgeben"
+    },
+    {
+      "nr": 19,
+      "titel": "Typische Einwände: „Wir können uns das Aussuchen nicht leisten“"
+    }
+  ]
+}

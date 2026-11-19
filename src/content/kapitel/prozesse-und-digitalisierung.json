@@ -1,0 +1,47 @@
+{
+  "nummer": 6,
+  "titel": "Prozesse und Digitalisierung",
+  "untertitel": "",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 47,
+      "titel": "Warum Prozesse zuletzt kommen"
+    },
+    {
+      "nr": 48,
+      "titel": "Die Wertschöpfungskette des Auftrags"
+    },
+    {
+      "nr": 49,
+      "titel": "Die vier Tore"
+    },
+    {
+      "nr": 50,
+      "titel": "Disposition: der Taktgeber"
+    },
+    {
+      "nr": 51,
+      "titel": "Software löst keinen Prozess"
+    },
+    {
+      "nr": 52,
+      "titel": "Buchhaltung digital: der Betrieb im Blick, nicht im Nachhinein"
+    },
+    {
+      "nr": 53,
+      "titel": "Automatisierung und KI-Agenten: was aus den Rollen folgt"
+    },
+    {
+      "nr": 54,
+      "titel": "Warum Prozesse scheitern"
+    },
+    {
+      "nr": 55,
+      "titel": "Das Betriebshandbuch"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "nummer": 4,
+  "titel": "Liquidität und Steuern",
+  "untertitel": "",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 29,
+      "titel": "Warum Liquidität vor Personal kommt"
+    },
+    {
+      "nr": 30,
+      "titel": "Abschlagsrechnungen im Takt der Baustelle"
+    },
+    {
+      "nr": 31,
+      "titel": "Forderungsmanagement: Mahnen ist kein Streit"
+    },
+    {
+      "nr": 32,
+      "titel": "Halbfertige Arbeiten: die unsichtbare Bilanzposition"
+    },
+    {
+      "nr": 33,
+      "titel": "Liquiditätsplanung über 13 Wochen"
+    },
+    {
+      "nr": 34,
+      "titel": "Sofort-Hebel: Fuhrpark, Investitionsabzug, Rückstellungen"
+    },
+    {
+      "nr": 35,
+      "titel": "Steuervorauszahlungen und die Nachzahlungsfalle"
+    },
+    {
+      "nr": 36,
+      "titel": "Bürgschaften, Avale, Wachstum finanzieren"
+    },
+    {
+      "nr": 37,
+      "titel": "Zehn Liquiditätsfehler aus echten Betrieben"
+    }
+  ]
+}

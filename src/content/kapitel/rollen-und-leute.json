@@ -1,0 +1,47 @@
+{
+  "nummer": 5,
+  "titel": "Rollen und Leute",
+  "untertitel": "Die zweite Führungsebene",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 38,
+      "titel": "Warum mehr Monteure selten die Lösung sind"
+    },
+    {
+      "nr": 39,
+      "titel": "A-, B- und C-Monteure"
+    },
+    {
+      "nr": 40,
+      "titel": "Die zweite Führungsebene"
+    },
+    {
+      "nr": 41,
+      "titel": "Rollen statt „macht halt jeder irgendwie“"
+    },
+    {
+      "nr": 42,
+      "titel": "Lohn, Prämie, Bonus im Handwerk"
+    },
+    {
+      "nr": 43,
+      "titel": "Azubis und Quereinsteiger"
+    },
+    {
+      "nr": 44,
+      "titel": "Halten schlägt Rekrutieren"
+    },
+    {
+      "nr": 45,
+      "titel": "Sich von C-Mitarbeitern trennen"
+    },
+    {
+      "nr": 46,
+      "titel": "Zehn Personalfehler aus echten Betrieben"
+    }
+  ]
+}

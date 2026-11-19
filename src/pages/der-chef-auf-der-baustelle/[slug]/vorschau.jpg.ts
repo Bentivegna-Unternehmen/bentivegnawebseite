@@ -13,7 +13,7 @@ export async function getStaticPaths() {
   const kapitel = await getCollection('kapitel');
   return alle.map((a) => {
     const k = kapitel.find((x) => x.id === a.data.kapitel);
-    return { params: { slug: a.id }, props: { d: a.data, kap: k ? `Kapitel ${k.data.nummer} · ${k.data.titel}` : '' } };
+    return { params: { slug: a.id }, props: { d: { ...a.data, bild: a.data.bild || k?.data.bild || '' }, kap: k ? (k.data.ohne_nummer ? k.data.titel : `Kapitel ${k.data.nummer} · ${k.data.titel}`) : '' } };
   });
 }
 

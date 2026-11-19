@@ -1,5 +1,23 @@
 {
   "nummer": 0,
   "titel": "Grundlagen",
-  "beschreibung": "Warum der Zustand deines Betriebs kein Zufall ist und woraus ein SHK-Betrieb eigentlich besteht."
+  "untertitel": "Warum dein Betrieb so läuft, wie er läuft",
+  "beschreibung": "Warum der Zustand deines Betriebs kein Zufall ist und woraus ein SHK-Betrieb eigentlich besteht.",
+  "ohne_nummer": false,
+  "bild": "/uploads/artikel/teil-1-motiv.jpg",
+  "bild_alt": "Schreibtisch mit Bauplan, Füller und weißem Bauhelm vor dunkelblauem Hintergrund",
+  "teile": [
+    {
+      "nr": 1,
+      "titel": "Der Zustand deines Betriebs ist kein Zufall"
+    },
+    {
+      "nr": 2,
+      "titel": "Dein Betrieb hat sechs Baustellen und eine Reihenfolge"
+    },
+    {
+      "nr": 3,
+      "titel": "Selbstcheck: Wo stehst du auf der Skala von 1 bis 10?"
+    }
+  ]
 }

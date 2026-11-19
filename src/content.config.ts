@@ -29,7 +29,12 @@ const kapitel = defineCollection({
   schema: z.object({
     nummer: z.number(),
     titel: z.string(),
-    beschreibung: z.string().optional().default('')
+    untertitel: z.string().optional().default(''),
+    beschreibung: z.string().optional().default(''),
+    ohne_nummer: z.boolean().optional().default(false),
+    bild: z.string().optional().default(''),
+    bild_alt: z.string().optional().default(''),
+    teile: z.array(z.object({ nr: z.number(), titel: z.string() })).optional().default([])
   })
 });
 

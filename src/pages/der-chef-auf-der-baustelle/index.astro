@@ -12,7 +12,17 @@ const artikel = (await getCollection('artikel')).filter((a) => istVeroeffentlich
 const neuester = artikel[artikel.length - 1];
 const proKapitel = kapitel.map((k) => ({ k, liste: artikel.filter((a) => a.data.kapitel === k.id) }));
 const ohneKapitel = artikel.filter((a) => !kapitel.some((k) => k.id === a.data.kapitel));
-const kapitelName = (a) => { const k = kapitel.find((x) => x.id === a.data.kapitel); return k ? `Kapitel ${k.data.nummer} · ${k.data.titel}` : ''; };
+const kapVon = (a) => kapitel.find((x) => x.id === a.data.kapitel);
+const kapitelName = (a) => { const k = kapVon(a); return k ? (k.data.ohne_nummer ? k.data.titel : `Kapitel ${k.data.nummer} · ${k.data.titel}`) : ''; };
+// Ohne eigenes Bild gilt das Motiv des Kapitels.
+const bildVon = (a) => a.data.bild || kapVon(a)?.data.bild || '';
+// Gliederung: geplante Teile je Kapitel. Veröffentlichte Teile sind verlinkt, alle anderen ausgegraut.
+const zeilen = (k, liste) => {
+  const plan = (k.data.teile || []).map((t) => ({ nr: t.nr, titel: t.titel, a: liste.find((x) => x.data.teil === t.nr) || null }));
+  const extra = liste.filter((x) => !plan.some((t) => t.nr === x.data.teil)).map((x) => ({ nr: x.data.teil, titel: x.data.titel, a: x }));
+  return [...plan, ...extra].sort((x, y) => x.nr - y.nr);
+};
+const geplant = kapitel.reduce((n, k) => n + (k.data.teile || []).length, 0);
 const NT = (R as any).naechster_teil || {};
 const ntDatum = NT.datum ? new Date(NT.datum).toLocaleDateString('de-DE', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Berlin' }) : '';
 const naechster = NT.titel ? NT.titel + (ntDatum ? `, erscheint am ${ntDatum}` : ', erscheint in Kürze') : '';
@@ -44,7 +54,7 @@ const ld = {
       </div>
       {neuester && (
         <a class="buch-neu" href={u(`/der-chef-auf-der-baustelle/${neuester.id}/`)}>
-          <ArtikelBild bild={neuester.data.bild} alt={neuester.data.bild_alt} teil={neuester.data.teil} titel={neuester.data.titel} unterzeile={neuester.data.unterzeile} kapitel={kapitelName(neuester)} eager />
+          <ArtikelBild bild={bildVon(neuester)} alt={neuester.data.bild_alt} teil={neuester.data.teil} titel={neuester.data.titel} unterzeile={neuester.data.unterzeile} kapitel={kapitelName(neuester)} eager />
           <span class="buch-neu-txt"><small>Neuester Teil</small><b>Teil {neuester.data.teil}: {neuester.data.titel}</b></span>
         </a>
       )}
@@ -67,20 +77,23 @@ const ld = {
         {proKapitel.map(({ k, liste }) => (
           <div class="kap">
             <div class="kap-kopf">
-              <span class="kap-nr">Kapitel {k.data.nummer}</span>
+              {!k.data.ohne_nummer && <span class="kap-nr">Kapitel {k.data.nummer}</span>}
               <h3>{k.data.titel}</h3>
+              {k.data.untertitel && <p class="kap-unter">{k.data.untertitel}</p>}
               {k.data.beschreibung && <p>{k.data.beschreibung}</p>}
             </div>
-            {liste.length > 0 ? (
+            {zeilen(k, liste).length > 0 ? (
               <ol class="teil-liste">
-                {liste.map((a) => (
-                  <li><a href={u(`/der-chef-auf-der-baustelle/${a.id}/`)}>
-                    {a.data.bild ? (
-                      <span class="teil-thumb"><img src={u(a.data.bild)} alt="" loading="lazy" decoding="async" width="300" height="190"><span class="teil-nr">Teil {a.data.teil}</span></span>
-                    ) : <span class="teil-nr">Teil {a.data.teil}</span>}
-                    <span class="teil-txt"><b>{a.data.titel}</b><small>{a.data.lead}</small></span>
-                    <span class="teil-meta"><Icon name="clock" /> {a.data.lesezeit || lesezeit(a.body)} Min.</span>
+                {zeilen(k, liste).map((z) => z.a ? (
+                  <li><a href={u(`/der-chef-auf-der-baustelle/${z.a.id}/`)}>
+                    {bildVon(z.a) ? (
+                      <span class="teil-thumb"><img src={u(bildVon(z.a))} alt="" loading="lazy" decoding="async" width="300" height="190"><span class="teil-nr">Teil {z.a.data.teil}</span></span>
+                    ) : <span class="teil-nr">Teil {z.a.data.teil}</span>}
+                    <span class="teil-txt"><b>{z.a.data.titel}</b><small>{z.a.data.lead}</small></span>
+                    <span class="teil-meta"><Icon name="clock" /> {z.a.data.lesezeit || lesezeit(z.a.body)} Min.</span>
                   </a></li>
+                ) : (
+                  <li class="teil-folgt"><span class="teil-nr">Teil {z.nr}</span><span class="teil-txt"><b>{z.titel}</b></span><span class="teil-meta">folgt</span></li>
                 ))}
               </ol>
             ) : (
@@ -95,6 +108,7 @@ const ld = {
         )}
       </div>
       {artikel.length === 0 && <p class="teil-bald">Der erste Teil erscheint in Kürze.</p>}
+      {(R as any).band2_hinweis && <p class="band-folgt">{(R as any).band2_hinweis}</p>}
       <BuchAbo ort="uebersicht" />
     </div>
   </section>

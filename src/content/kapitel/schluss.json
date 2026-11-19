@@ -1,0 +1,19 @@
+{
+  "nummer": 7,
+  "titel": "Schluss",
+  "untertitel": "",
+  "beschreibung": "",
+  "ohne_nummer": true,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 56,
+      "titel": "Sechs Baustellen, eine Reihenfolge: Was jetzt gilt"
+    },
+    {
+      "nr": 57,
+      "titel": "Wie es weitergeht"
+    }
+  ]
+}

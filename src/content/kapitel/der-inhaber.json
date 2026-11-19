@@ -1,0 +1,43 @@
+{
+  "nummer": 1,
+  "titel": "Der Inhaber",
+  "untertitel": "Vom besten Monteur zum Unternehmer",
+  "beschreibung": "",
+  "ohne_nummer": false,
+  "bild": "",
+  "bild_alt": "",
+  "teile": [
+    {
+      "nr": 4,
+      "titel": "Warum der Inhaber an erster Stelle steht"
+    },
+    {
+      "nr": 5,
+      "titel": "Der beste Monteur ist noch kein Unternehmer"
+    },
+    {
+      "nr": 6,
+      "titel": "Deine Zeit: Baustelle, Büro, Betrieb"
+    },
+    {
+      "nr": 7,
+      "titel": "Feuerwehrmann spielen: immer dorthin, wo es brennt"
+    },
+    {
+      "nr": 8,
+      "titel": "Fünf Zahlen, 30 Minuten im Monat"
+    },
+    {
+      "nr": 9,
+      "titel": "Familie im Betrieb: Ehepartner, Bruder, Sohn"
+    },
+    {
+      "nr": 10,
+      "titel": "Glaubenssätze aus dem Handwerk"
+    },
+    {
+      "nr": 11,
+      "titel": "Kosten oder Investition?"
+    }
+  ]
+}
