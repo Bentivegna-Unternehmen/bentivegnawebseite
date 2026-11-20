@@ -40,6 +40,7 @@ const org = {
   logo: absUrl('/uploads/logos/logo-hoch.svg'),
   telephone: E.telefon, email: E.email,
   address: { '@type': 'PostalAddress', streetAddress: E.strasse, postalCode: E.plz_ort.split(' ')[0], addressLocality: E.plz_ort.split(' ').slice(1).join(' '), addressCountry: 'DE' },
+  openingHoursSpecification: ((E as any).oeffnungszeiten || []).map((o: any) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: o.tage, opens: o.von, closes: o.bis })),
   sameAs: [E.youtube, ...Object.values((E as any).social || {})].filter(Boolean)
 };
 const wa = waLink(E.whatsapp);

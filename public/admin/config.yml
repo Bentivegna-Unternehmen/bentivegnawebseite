@@ -2,7 +2,7 @@
 # Erzeugt aus den Datendateien. Repository-Name unter backend.repo anpassen.
 backend:
   name: github
-  repo: schmidtke-gmbh/bentivegna
+  repo: Bentivegna-Unternehmen/bentivegna
   branch: main
   commit_messages:
     create: 'Neu: {{collection}} „{{slug}}“'
@@ -3680,6 +3680,27 @@ collections:
         name: standard_bild
         widget: image
         required: false
+    - label: Öffnungszeiten
+      name: oeffnungszeiten
+      widget: list
+      fields:
+      - label: Tage
+        name: tage
+        widget: list
+        field:
+          label: Eintrag
+          name: eintrag
+          widget: string
+        required: false
+      - label: Absender (mandant oder kanzlei)
+        name: von
+        widget: string
+        required: false
+      - label: Bis
+        name: bis
+        widget: string
+        required: false
+      required: false
 - name: rechtliches
   label: Impressum & Datenschutz
   description: Die Rechtstexte der Website.

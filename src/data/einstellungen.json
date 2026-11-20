@@ -4,7 +4,7 @@
   "strasse": "Krummebergstraße 1",
   "plz_ort": "88662 Überlingen",
   "telefon": "+49 7551 8411 0",
-  "erreichbar": "9:00 bis 16:00 Uhr",
+  "erreichbar": "telefonisch Mo–Fr 9 bis 16 Uhr",
   "email": "ueberlingen@lorbes.de",
   "whatsapp": "+49 7551 8411 0",
   "youtube": "https://www.youtube.com/channel/UC3EWTVvsQsLxDs94vO5GWdg",
@@ -44,5 +44,24 @@
   },
   "seo": {
     "standard_bild": "/uploads/og-shk-steuerberater.jpg"
-  }
+  },
+  "oeffnungszeiten": [
+    {
+      "tage": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "von": "09:00",
+      "bis": "16:00"
+    },
+    {
+      "tage": [
+        "Friday"
+      ],
+      "von": "09:00",
+      "bis": "12:00"
+    }
+  ]
 }
